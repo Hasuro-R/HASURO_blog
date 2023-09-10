@@ -10,7 +10,7 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="HASUROのブログ" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
@@ -22,21 +22,47 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--primary-green: 88, 186, 137;
+		--primary-yellow-green: 216, 223, 0;
+
+		--link-color: 0, 170, 235;
 	}
-	html {
+
+	:root[color-theme='light'] {
+		--background-color: 229, 236, 237;
+		--background-theme-color: 255, 255, 255;
+
+		--text-color: 0, 0, 0;
+	}
+
+	:root[color-theme='dark'] {
+		--background-color: 0, 0, 0;
+		--background-them-color: 26, 32, 35;
+
+		--text-color: 255, 255, 255;
+	}
+
+	* {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+
+	html,
+	body {
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		max-width: 100vw;
+		min-height: 100vh;
+		overflow-x: hidden;
+		color: rbg(var(--text-color));
+		background-color: rgb(var(--background-color));
 	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
 	code {
 		font-family:
 			Menlo,
