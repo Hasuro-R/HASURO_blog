@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ColorThemeProvider from '../middlewares/ColorThemeProvider';
+import Header from '../components/Header/Header';
 ---
 
 <Layout title='HASUROのblog'>
     <ColorThemeProvider client:load>
+        <Header client:load />
         <div class='all-container'>
         </div>
     </ColorThemeProvider>

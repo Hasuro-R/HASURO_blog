@@ -1,6 +1,7 @@
 import { useEffect, type ReactNode, useState, createContext } from 'react';
 import type { colorContextType } from '../types/colorContextType';
-import { colorThemeKey } from '../lib/key';
+import {useStore} from '@nanostores/react';
+import { colorThemeStore } from '../stores/colorTheme';
 
 export const ColorThemeContext = createContext<colorContextType>({
     theme: '',
@@ -8,29 +9,24 @@ export const ColorThemeContext = createContext<colorContextType>({
 });
 
 export default function ColorThemeProvider({children} : {children: ReactNode}) {
-    const [theme, setTheme] = useState('');
+    const status = useStore(colorThemeStore);
 
     useEffect(() => {
-        const colorTheme = localStorage.getItem(colorThemeKey);
         const root = window.document.documentElement;
 
-        if (colorTheme) {
-            setTheme(colorTheme);
-            root.setAttribute('color-theme', colorTheme);
-        } else {
+        if (status === '') {
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                setTheme('dark');
+                colorThemeStore.set('dark');
                 root.setAttribute('color-theme', 'dark');
             } else {
-                setTheme('light');
+                colorThemeStore.set('light');
                 root.setAttribute('color-theme', 'light');
             };
+        } else {
+            colorThemeStore.set(status);
+            root.setAttribute('color-theme', status);
         };
-    }, []);
+    }, [status]);
 
-    return (
-        <ColorThemeContext.Provider value={{theme, setTheme}}>
-            {children}
-        </ColorThemeContext.Provider>
-    );
+    return children;
 };
