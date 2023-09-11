@@ -33,6 +33,10 @@ const { title } = Astro.props;
 		--background-theme-color: 255, 255, 255;
 
 		--text-color: 0, 0, 0;
+
+		--justify-content: flex-start;
+
+		--change-button-gradation: linear-gradient(135deg, rgba(233,70,85,1) 0%, rgba(243,163,130,1) 100%);
 	}
 
 	:root[color-theme='dark'] {
@@ -40,6 +44,10 @@ const { title } = Astro.props;
 		--background-theme-color: 26, 32, 35;
 
 		--text-color: 255, 255, 255;
+
+		--justify-content: flex-end;
+
+		--change-button-gradation: linear-gradient(135deg, rgba(88,186,137,1) 0%, rgba(216,223,0,1) 100%);
 	}
 
 	* {
