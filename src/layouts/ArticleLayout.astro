@@ -2,8 +2,8 @@
 import { articles } from "../lib/article/articles";
 import Layout from "./Layout.astro";
 import TechIndex from '../components/Tech/TechIndex';
-import {FaTwitter} from 'react-icons/fa';
 import {formattedDate} from '../lib/function/formattedDate';
+import Footer from "../components/Footer/Footer.astro";
 const {frontmatter} = Astro.props;
 
 const article = articles.filter(item => item.id === frontmatter.id)[0];
@@ -17,7 +17,7 @@ const date = formattedDate(article.date);
             <div class='article-top-tweet-box'>
                 <a href={`https://twitter.com/intent/tweet?url=https://blog.hasuro.com/articles/${frontmatter.id}`} target='_blank'>
                     <div class='article-top-tweet-icon'>
-                        <FaTwitter />
+                        <img src='/icon/twitter.svg' alt='tweet' class='article-top-tweet-image' />
                     </div>
                 </a>
                 <p class='article-top-tweet-text'>ツイート</p>
@@ -34,6 +34,7 @@ const date = formattedDate(article.date);
             <slot />
         </div>
     </div>
+    <Footer />
 </Layout>
 <style>
     .article-top-container {
@@ -73,9 +74,13 @@ const date = formattedDate(article.date);
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        font-size: 20px;
         color: rgb(var(--primary-gray));
         background-color: rgb(var(--background-theme-color));
+    }
+
+    .article-top-tweet-image {
+        width: 20px;
+        height: auto;
     }
 
     .article-top-tweet-text {
@@ -110,8 +115,11 @@ const date = formattedDate(article.date);
         align-items: flex-start;
         justify-content: space-between;
         gap: 30px;
-        padding: 0 20px;
+        padding: 0;
         margin: 40px 0;
+        @media screen and (min-width: 661px) {
+            padding: 0 20px;
+        }
     }
 
     .article-main-container {
@@ -119,9 +127,14 @@ const date = formattedDate(article.date);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        flex-direction: flex-start;
-        padding: 20px;
+        justify-content: flex-start;
+        padding: 40px 20px;
+        padding-top: 0;
         border-radius: 20px;
         background-color: rgb(var(--background-theme-color));
+        @media screen and (min-width: 851px) {
+            padding: 40px;
+            padding-top: 0;
+        }
     }
 </style>
