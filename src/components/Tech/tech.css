@@ -1,0 +1,26 @@
+.tech-index-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.category-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 4px 8px;
+    border-radius: 100vh;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid rgb(var(--primary-gray));
+    background-color: rgb(var(--background-theme-color));
+}
+
+.category-icon {
+    width: 20px;
+    height: auto;
+}
