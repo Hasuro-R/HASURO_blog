@@ -11,7 +11,7 @@ export default function ColorThemeChangeButton() {
 
     return (
         <div
-            className='container'
+            className='change-button-container'
             style={{justifyContent: 'var(--justify-content)', background: 'var(--change-button-gradation)'}}
             onClick={handleTheme}
         >

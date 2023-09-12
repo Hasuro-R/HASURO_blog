@@ -1,6 +1,6 @@
 /* ColorThemeChangeButton */
 
-.container {
+.change-button-container {
     width: 43px;
     display: flex;
     align-items: center;

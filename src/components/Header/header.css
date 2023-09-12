@@ -24,6 +24,11 @@
     justify-content: center;
 }
 
+.icon-link {
+    width: auto;
+    height: 100%;
+}
+
 .icon {
     width: auto;
     height: 100%;
