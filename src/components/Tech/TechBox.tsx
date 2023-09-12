@@ -6,7 +6,9 @@ export default function TechBox({category}: {category: string}) {
 
     return (
         <div className='category-box'>
+        {tech.icon !== '' && (
             <img src={tech.icon} alt={tech.name} className='category-icon' />
+        )}
             <span>{tech.name}</span>
         </div>
     );

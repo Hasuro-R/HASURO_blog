@@ -33,9 +33,12 @@ const { title } = Astro.props;
 	:root {
 		--primary-green: 88, 186, 137;
 		--primary-yellow-green: 216, 223, 0;
+		--primary-pink: 226, 56, 58;
+		--primary-pale-pink: 238, 131, 133;
 		--primary-gray: 145, 158, 153;
 
 		--link-color: 0, 170, 235;
+
 	}
 
 	:root[color-theme='light'] {
@@ -48,6 +51,8 @@ const { title } = Astro.props;
 		--justify-content: flex-start;
 
 		--change-button-gradation: linear-gradient(135deg, rgba(233,70,85,1) 0%, rgba(243,163,130,1) 100%);
+
+		--box-shadow: 0 0 1px rgb(var(--primary-pink)), 0 0 2px rgb(var(--primary-pink)), 0 0 3px rgb(var(--primary-pink)), 0 0 5px rgb(var(--primary-pale-pink));
 	}
 
 	:root[color-theme='dark'] {
@@ -60,6 +65,8 @@ const { title } = Astro.props;
 		--justify-content: flex-end;
 
 		--change-button-gradation: linear-gradient(135deg, rgba(88,186,137,1) 0%, rgba(216,223,0,1) 100%);
+
+		--box-shadow: 0 0 1px rgb(var(--primary-green)), 0 0 2px rgb(var(--primary-green)), 0 0 3px rgb(var(--primary-green)), 0 0 5px rgb(var(--primary-yellow-green));
 	}
 
 	* {
