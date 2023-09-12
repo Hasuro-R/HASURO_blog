@@ -1,5 +1,5 @@
 export type articleType = {
-    id: string,
+    id: number,
     title: string,
     icon: string,
     date: string,
