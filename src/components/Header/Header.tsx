@@ -10,7 +10,9 @@ export default function Header() {
         <div className='header-container' style={{backgroundColor: 'rgba(var(--background-theme-color), 0.8)'}}>
             <div className='header'>
                 <div className='icon-box'>
-                    <img src={theme === 'dark' ? '/logo/HASURO_blog_logo_dark.png' : '/logo/HASURO_blog_logo_light.png'} alt='icon' className='icon' />
+                    <a href='/' className='icon-link'>
+                        <img src={theme === 'dark' ? '/logo/HASURO_blog_logo_dark.png' : '/logo/HASURO_blog_logo_light.png'} alt='icon' className='icon' />
+                    </a>
                 </div>
                 <ColorThemeChangeButton />
             </div>
