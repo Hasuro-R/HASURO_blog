@@ -1,0 +1,127 @@
+---
+import { articles } from "../lib/article/articles";
+import Layout from "./Layout.astro";
+import TechIndex from '../components/Tech/TechIndex';
+import {FaTwitter} from 'react-icons/fa';
+import {formattedDate} from '../lib/function/formattedDate';
+const {frontmatter} = Astro.props;
+
+const article = articles.filter(item => item.id === frontmatter.id)[0];
+const date = formattedDate(article.date);
+---
+
+<Layout title={article.title}>
+    <div class='article-top-container'>
+        <div class='article-top-box'>
+            <p class='article-top-icon'>{article.icon}</p>
+            <div class='article-top-tweet-box'>
+                <a href={`https://twitter.com/intent/tweet?url=https://blog.hasuro.com/articles/${frontmatter.id}`} target='_blank'>
+                    <div class='article-top-tweet-icon'>
+                        <FaTwitter />
+                    </div>
+                </a>
+                <p class='article-top-tweet-text'>ツイート</p>
+            </div>
+        </div>
+        <div class='article-top-title-box'>
+            <p class='article-title'>{article.title}</p>
+            <p class='article-date-text'>{date}</p>
+        </div>
+        <TechIndex categoryes={article.categoryes} />
+    </div>
+    <div class='article-layout'>
+        <div class='article-main-container'>
+            <slot />
+        </div>
+    </div>
+</Layout>
+<style>
+    .article-top-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 60px;
+        padding: 0 20px;
+    }
+
+    .article-top-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .article-top-icon {
+        font-size: 50px;
+    }
+
+    .article-top-tweet-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .article-top-tweet-icon {
+        width: 40px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 20px;
+        color: rgb(var(--primary-gray));
+        background-color: rgb(var(--background-theme-color));
+    }
+
+    .article-top-tweet-text {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(var(--primary-gray));
+    }
+
+    .article-top-title-box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 5px;
+    }
+
+    .article-title {
+        font-size: 35px;
+        font-weight: 600;
+    }
+
+    .article-date-text {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(var(--primary-gray));
+    }
+
+    .article-layout {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 0 20px;
+        margin: 40px 0;
+    }
+
+    .article-main-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-direction: flex-start;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: rgb(var(--background-theme-color));
+    }
+</style>
