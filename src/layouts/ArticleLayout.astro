@@ -10,7 +10,7 @@ const article = articles.filter(item => item.id === frontmatter.id)[0];
 const date = formattedDate(article.date);
 ---
 
-<Layout title={article.title}>
+<Layout title={article.title} url={`/articles/${frontmatter.id}`}>
     <div class='article-top-container'>
         <div class='article-top-box'>
             <p class='article-top-icon'>{article.icon}</p>
