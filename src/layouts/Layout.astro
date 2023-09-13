@@ -7,6 +7,9 @@ interface Props {
 }
 
 const { title, url } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://blog.hasuro.com');
+const ogpImageURL = new URL('/ogp.png', canonicalURL);
 ---
 
 <!doctype html>
@@ -20,7 +23,7 @@ const { title, url } = Astro.props;
 		<meta property="og:url" content={url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:site_name" content="HASUROのブログ" />
-		<meta property="og:image" content="/opengraph-image.png" />
+		<meta property="og:image" content={ogpImageURL} />
 		<title>{title}</title>
 	</head>
 	<body>
