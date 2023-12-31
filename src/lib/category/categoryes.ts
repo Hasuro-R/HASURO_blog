@@ -7,5 +7,6 @@ export const categoryes = [
     {name: 'TypeScript', icon: '/category/typescript.svg'},
     {name: 'Ruby', icon: '/category/ruby.svg'},
     {name: 'Sass', icon: '/category/sass.svg'},
+    {name: 'Flutter', icon: '/category/flutter.png'},
     {name: 'tech', icon: '/category/tech.svg'},
 ];

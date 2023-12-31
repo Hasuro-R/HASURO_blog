@@ -42,7 +42,7 @@ export default function Home() {
                     <p className='home-title'>Articles</p>
                     {articleIndex.map((item, key) => {
                         return (
-                            <a href={`/articles/${item.id}`} className='fill-link' key={key}>
+                            <a href={`/articles/${item.id}`} className='fill-link non-style-link' key={key}>
                                 <ArticleBox title={item.title} icon={item.icon} categoryes={item.categoryes} date={item.date} />
                             </a>
                         )
