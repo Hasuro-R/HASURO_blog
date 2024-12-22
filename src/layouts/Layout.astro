@@ -197,11 +197,34 @@ const description = 'HASUROのブログです。'
 	}
 
 	blockquote {
-		ont-size: .97em;
+		font-size: 1em;
     margin: 1.4rem 0;
     padding: 2px 0 2px .7em;
     color: rgb(var(--primary-gray));
     border-left: 3px solid rgb(var(--primary-gray));
+	}
+
+	table {
+		margin: 1.2rem 0;
+    width: auto;
+    border-collapse: collapse;
+    font-size: 0.95em;
+    line-height: 1.5;
+    word-break: normal;
+    display: block;
+    overflow: auto;
+	}
+
+	th {
+		padding: 0.5rem;
+		font-weight: 700;
+    border: 1px solid rgb(var(--code-background-color));
+		background-color: rgb(var(--code-background-color));
+	}
+
+	td {
+		padding: 0.5rem;
+    border: 1px solid rgb(var(--code-background-color));
 	}
 
 	.all-wrappar {
